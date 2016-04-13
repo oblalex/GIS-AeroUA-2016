@@ -629,6 +629,7 @@
         <img width="50%" data-src="img/example-10.png">
 
         <aside class="notes">
+          Фототекстуры (в модах) режут глаза.
         </aside>
       </section>
 
@@ -747,7 +748,7 @@
     </section>
 
     <section>
-      <h3>Навигационная карта</h3>
+      <h3>Создание навигационной карты</h3>
       <img class="fragment fade-in" width="32%" data-src="img/example-19-1.png">
       <img class="fragment fade-in" width="32%" data-src="img/example-19-2.png">
       <img class="fragment fade-in" width="32%" data-src="img/example-19-3.png">
@@ -761,7 +762,7 @@
         <br>
         Выбираем финальный участок, корректируем и подрисовываем.<br>
         <br>
-        Необходимо нанести дороги, населенные пункты и проч.<br>
+        Необходимо ещё нанести дороги, населенные пункты и проч.<br>
         <br>
         Также можно использовать реальные карты при наличии и совпадении.
       </aside>
@@ -804,23 +805,163 @@
     </section>
 
     <section>
-      <h3>Использование навигационных карт</h3>
-      // TODO:
-      <aside class="notes">
-      </aside>
+      <section>
+        <h3>Использование навигационных карт</h3>
+        <img width="80%" data-src="img/Grishanov.jpg">
+
+        <aside class="notes">
+          Зачем нужны навигационные карты в игре? Конечно же для навигации.<br>
+          <br>
+          Кем они используются? Конечно же всеми. Но особенно бомбардировщиками и штурмовиками.<br>
+          <br>
+          В игре все как в реальности: перед вылетом пилот или командир группы составляет маршрут.
+          В основном для незаметного захода на цель и безопасного отступления. Во время полета остается
+          следовать маршруту и делать вычисления для корректировки пути.<br>
+          <br>
+          Вычисления делаются в уме или с помощью инструментов. Некоторые пользуются настоящими
+          навигационными линейками для вычисления реальной скорости, учета ветра и т.д.<br>
+          <br>
+          Большинство пользуется программными инструментами. Лично я в фоновом режиме разработываю
+          один программный инструмент. Но об этом позже.
+          <br>
+        </aside>
+      </section>
+
+      <section>
+        <h3>Использование навигационных карт</h3>
+        <img width="70%" data-src="img/murmansk_war_en.png">
+
+        <aside class="notes">
+          Как же построить эффективный маршрут? Для этого необходимо знать расположение своих сил
+          и сил противника.<br>
+          <br>
+          В отличии от ударной авиации, пилоты-истребители либо сопровождают удорные группы,
+          либо защищают стратегически важные объекты: склады, заводы, транспортные узлы, колонны и т.д.
+          Для этого им так же необходимо знать расположение наземных сил.<br>
+          <br>
+          Так же необходимо умение и навык быстрой ориентации в пространстве. Навык полезный и его
+          можно использовать в реальной жизни.<br>
+          <br>
+        </aside>
+      </section>
+
+      <section>
+        <h3>Использование карт высот</h3>
+        <img width="75%" data-src="img/bomb-sight.jpg">
+
+        <aside class="notes">
+          При бомбардировке с горизонтального полёта необходимо точно знать:<br>
+          — Свою высоту над уровнем моря.<br>
+          — Свою реальную скорость.<br>
+          — Скорость движения цели.<br>
+          — Расположение и направление движения цели.<br>
+          — Высоту цели над уровнем моря.<br>
+          <br>
+          Самая большая проблема: высота цели над уровнем моря. Для этого нужно иметь возможность
+          как можно точнее узнать высоту поверхности земли в необходимой точке.<br>
+          <br>
+          Для этого ползуются специальными инструментами.
+        </aside>
+      </section>
     </section>
 
     <section>
-      <h3>Личный вклад</h3>
-      // TODO:
-      <aside class="notes">
-      </aside>
+      <section>
+        <h3>Личный вклад</h3>
+        <p style="text-align: left;">
+          <span class="fragment fade-in">— Парсер журнала событий.</span><br>
+          <span class="fragment fade-in">— Парсер миссий.</span><br>
+          <span class="fragment fade-in">— Библиотека для работы с выделенным сервером.</span><br>
+          <span class="fragment fade-in">— Исследование опроса координат объектов в реальном времени.</span><br>
+          <span class="fragment fade-in">— Миникоммандер.</span><br>
+          <span class="fragment fade-in">— Инструмент получения реальных высот.</span><br>
+          <span class="fragment fade-in">— Картографический веб-сервис.</span><br>
+          <span class="fragment fade-in">— Вспомагательные утилиты.</span><br>
+          <span class="fragment fade-in">— Поиск и исследование неисправностей.</span><br>
+        </p>
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3>Карта проектов</h3>
+        <a href="http://il2horusteam.github.io/projects/">
+          <img width="100%" data-src="img/projects.png">
+        </a>
+
+        <aside class="notes">
+          Модульный подход.<br>
+          Некоторые библиотеки используются в реальных проктах.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Картографический сервис</h3>
+        <a href="http://il2horusteam.github.io/web-map-tools/">
+          <img width="100%" data-src="img/web-map-tools-1.png">
+        </a>
+
+        <aside class="notes">
+          Как прототип более сельезного инструмента.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Улучшенная версия</h3>
+          <img width="90%" data-src="img/web-map-tools-2.png">
+
+        <aside class="notes">
+          Минимизация трафика, Проблема хостинга тайлов и доступа к точкам высот.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Видимый слой карты высот</h3>
+          <img width="90%" data-src="img/web-map-tools-3.png">
+
+        <aside class="notes">
+          Полезно для прокладки маршрутов по низким высотам с целью скрыться от противника.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Слой идеальных равнин</h3>
+          <img width="90%" data-src="img/web-map-tools-4.png">
+
+        <aside class="notes">
+          Нулевой перепад высот.<br>
+          Полезно для тех, кто создает стратегические объекты и аэродромы.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Ещё лучше</h3>
+          <img width="85%" data-src="img/web-map-tools-5.png">
+
+        <aside class="notes">
+          Сетка и привязка к границам.
+        </aside>
+      </section>
     </section>
 
     <section>
       <h3>Ожидания и планы на будущее</h3>
-      // TODO:
+      <p style="text-align: left;">
+        <span class="fragment fade-in">— Создание современного коммандера.</span><br>
+        <span class="fragment fade-in">— Создание генератора миссий.</span><br>
+        <span class="fragment fade-in">— Создание картографического сервиса.</span><br>
+        <span class="fragment fade-in">— Создание картографической библиотеки.</span><br>
+        <span class="fragment fade-in">— Улучшение процесса разработки.</span><br>
+        <span class="fragment fade-in">— Исправление ошибок.</span><br>
+        <span class="fragment fade-in">— Развитие функционала.</span><br>
+        <span class="fragment fade-in">— Один в поле — не воин.</span><br>
+        <span class="fragment fade-in">— Политический аспект.</span><br>
+        <span class="fragment fade-in">— Профессиональный аспект.</span><br>
+      </p>
+
       <aside class="notes">
+        Дать новое дыхание.
       </aside>
     </section>
 
