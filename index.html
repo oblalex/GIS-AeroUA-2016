@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Картография в авиасимуляторе "Ил-2 Штурмовик" — GIS-AeroUA 2016</title>
+  <title>Картография в авиасимуляторе «Ил-2 Штурмовик» — GIS-AeroUA 2016</title>
 
   <meta name="description" content="Презентация для GIS-AeroUA 2016">
   <meta name="author" content="Alexander Oblovatniy">
@@ -21,11 +21,11 @@
 
   <!-- Printing and PDF exports -->
   <script>
-    var link = document.createElement( 'link' );
+    var link = document.createElement('link');
     link.rel = 'stylesheet';
     link.type = 'text/css';
-    link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-    document.getElementsByTagName( 'head' )[0].appendChild( link );
+    link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    document.getElementsByTagName('head')[0].appendChild(link);
   </script>
 
   <!--[if lt IE 9]>
@@ -38,18 +38,794 @@
   <div class="slides">
     <section>
       <h1>GIS AeroUA 2016</h1>
-      <h3>Картография в авиасимуляторе<br/>«Ил-2 Штурмовик»</h3>
+      <h3>Картография в авиасимуляторе<br>«Ил-2 Штурмовик»</h3>
       <p>
-        <small>Докладывает <a href="http://about.me/oblovatniy/">Обловатный Александр</a></small>
+        <small>
+        Докладывает <a href="http://about.me/oblovatniy/">Обловатный Александр</a>
+        <br><br><br><br><br><br>
+        <a href="http://oblalex.github.io/GIS-AeroUA-2016">oblalex.github.io/GIS-AeroUA-2016</a>
+        </small>
       </p>
+
+      <aside class="notes">
+        Добрый день, меня зовут Александр.<br>
+        <br>
+        Неделю назад я не ожидал оказаться сегодня здесь на сцене.<br>
+        Об этом событии я узнал совершенно случайно в ФБ.<br>
+        Для меня интересна тематика, а так же я был совершенно не в курсе того, что же происходит
+        в данной области в нашей стране.<br>
+        <br>
+        Мне просто хотелось прийти посмотреть и послушать, но со мной связался Александр из
+        оргкомитета и начал задавать вопросы:<br>
+        "А вы откуда?", "А чем вы занимаетесь?", "Почему ничего о себе не указали?".<br>
+        Пришлось рассказать о своих интересах и увлечениях, в результате чего получил приглашение
+        выступить с докладом. Определенная связь с темой конференции есть, поэтому почему бы и нет?<br>
+        <br>
+        За неделю хорошо подготовиться непросто, но я рад, что у меня есть такая возможность.<br>
+        Эту возможность я использую для того, чтобы рассказать вам о картографии в
+        авиасимуляторе «Ил-2 Штурмовик».<br>
+        <br>
+        Доклад у меня небольшой. Можно считать, что это мое первое публичное выступление.
+        Я надеюсь, что оно пройдет гладко :)<br>
+        <br>
+        Адрес презентации внизу слайда: для тех, кому плохо видно или нужно понять, тратить время или нет.
+      </aside>
     </section>
 
     <section>
-      <h2># TODO</h2>
+      <h3>О чем доклад?</h3>
+      <p style="text-align: left;">
+        <span class="fragment fade-in">— Коротко о себе.</span><br>
+        <span class="fragment fade-in">— Об авиасимуляторе, текущий статус и развитие.</span><br>
+        <span class="fragment fade-in">— Личный интерес.</span><br>
+        <span class="fragment fade-in">— Развитие сегодня.</span><br>
+        <span class="fragment fade-in">— Территории, представленные в симуляторе.</span><br>
+        <span class="fragment fade-in">— Процесс разработки карт.</span><br>
+        <span class="fragment fade-in">— Практическое применение навигационных карт.</span><br>
+        <span class="fragment fade-in">— Личный вклад.</span><br>
+        <span class="fragment fade-in">— Ожидания и планы на будущее.</span><br>
+      </p>
+
+      <aside class="notes">
+        Это было лирическое отступление, а сейчас давайте посмотрим, о чем же будет сам доклад.<br>
+        <br>
+        Во-первых, я наконец представлюсь. Коротко.<br>
+        <br>
+        Во-вторых, для тех, кто вдруг не в курсе, проведу небольшой экскурс об авиасимуляторе, его статусе и развитии.<br>
+        <br>
+        В-третьих, расскажу о личных интересах и о том, чем я занимаюсь.<br>
+        <br>
+        Далее последует небольшая информация о том, как происходит развитие сегодня.<br>
+        <br>
+        Так же я расскажу о территориях, представленных в симуляторе.<br>
+        <br>
+        В общих чертах расскажу о процессе разработки карт и о том, при чем тут GIS.<br>
+        <br>
+        О том, как карты используются.
+        <br>
+        О том, чем же я занимаюсь именно в области карт.<br>
+        <br>
+        Наконец, поделюсь своими ожиданиями и планами на будущее.<br>
+        <br>
+        После доклада будет время для вопросов.<br>
+        Но если вдруг почувствуете, что внутренние системы кричат SOS, и что
+        дальнейшее повествование будет для вас навсегда утрачено, то, конечно же,
+        не стесняйтесь и задавайте вопросы сразу.
+      </aside>
     </section>
 
     <section>
-      <h2>Вопросы</h2>
+      <h3>О себе</h3>
+      <p style="text-align: left;">
+        <span class="fragment fade-in">— Инженер.</span><br>
+        <span class="fragment fade-in">— Черниговский политех (спец. комп. сис-мы и сети).</span><br>
+        <span class="fragment fade-in">— Магистратура (янв. 2014).</span><br>
+        <span class="fragment fade-in">— В отрасли ИТ с января 2013.</span><br>
+        <span class="fragment fade-in">— Сейчас разработчик ПО в SoftServe (аутсорс).</span><br>
+        <span class="fragment fade-in">— Занимаюсь web, backend, API, networking.</span><br>
+        <span class="fragment fade-in">— Интересуюсь почти всем.</span><br>
+        <span class="fragment fade-in">— Люблю пространство и созидание.</span><br>
+      </p>
+      <aside class="notes">
+        Итак, кто же я такой?<br>
+        <br>
+        По образованию я инженер.<br>
+        <br>
+        Учился в Черниговский политехе по специальности "специализированные компьютерные системымы и сети".<br>
+        <br>
+        В январе 2014-го закончил магистратуру.<br>
+        <br>
+        Работаю в отрасли ИТ с января 2013-го года.<br>
+        <br>
+        Текущее место работы: аутсорсинговая компания SoftServe. О разработках компании в сфере,
+        представленной на конференции мне ничего не известно.<br>
+        <br>
+        На этой конференции я никого не предстваляю и присутствую здесь чисто из личных соображений.<br>
+        <br>
+        Занимаюсь веб-разработкой, бекендом, созданием API, сетевым программированием.<br>
+        <br>
+        Любознательный и интересуюсь почти всем. Дизайн, философия, психология, наука, human–computer interaction.<br>
+        <br>
+        Люблю пространство, люблю созидать, люблю вещи эстетические и с чувством прекрасного.<br>
+        <br>
+        Если интересует более подробная информация, то после доклада.
+      </aside>
+    </section>
+
+    <section>
+      <h3>Об авиасимуляторе</h3>
+      <img class="fragment fade-in" data-src="img/il-2-shturmovik-zabytye-srazhenija_1869_small_550.jpg">
+
+      <aside class="notes">
+        Думаю, каждый, кто как-то связан с авиацией, знает, что такое «Ил-2 Штурмовик».<br>
+        А если не знает, то хотя бы слышал.<br>
+        А если кто не слышал, то я коротко расскажу.
+        <br>
+        Речь идет о первом «Ил-2 Штурмовик», который «Забытые сражения» или в простонародье «старичок».
+      </aside>
+    </section>
+
+    <section>
+      <h3>Об авиасимуляторе</h3>
+      <p style="text-align: left;">
+        <span class="fragment fade-in">— Дата выпуска: 18 ноября 2001.</span><br>
+        <span class="fragment fade-in">— Разработчики: «Maddox Games».</span><br>
+        <span class="fragment fade-in">— Издательства: «Ubisoft», «1С».</span><br>
+        <span class="fragment fade-in">— Последняя платная версия: 4.07 (22 декабря 2006 г.).</span><br>
+        <span class="fragment fade-in">— Преемники: команда энтузиастов «Daidalos Team».</span><br>
+        <span class="fragment fade-in">— Крайняя версия: 4.13.1 (7 апреля 2016 г.).</span><br>
+        <span class="fragment fade-in">— Спектр неофициальных модификаций.</span><br>
+        <span class="fragment fade-in">— 90.65% (GameRankings), 91/100 (metacritic).</span><br>
+      </p>
+
+      <aside class="notes">
+        // review aggregator
+      </aside>
+    </section>
+
+    <section>
+      <h3>Это игра или как?</h3>
+      <p style="text-align: left;">
+        <span class="fragment fade-in">— Игра.</span><br>
+        <span class="fragment fade-in">— Пилотажный симулятор.</span><br>
+        <span class="fragment fade-in">— Спортивный симулятор.</span><br>
+        <span class="fragment fade-in">— Исторический симулятор.</span><br>
+        <span class="fragment fade-in">— Интерактивный симулятор 2-й МВ.</span><br>
+        <span class="fragment fade-in">— Командный тренажер.</span><br>
+        <span class="fragment fade-in">— Реалистичный многоцелевой авиасимулятор.</span><br>
+        <blockquote class="fragment fade-in">
+          “На момент выхода это была самая высокотехнологичная игра в своём жанре и оставалась таковой длительное время.”
+          <footer>
+            <cite>Википедия</cite>
+          </footer>
+        </blockquote>
+      </p>
+
+      <aside class="notes">
+        // как вирпилы взлетали (2008/9)
+      </aside>
+    </section>
+
+    <section>
+      <h3>Личный интерес</h3>
+      <div style="text-align: left; column-count: 2;">
+        <span class="fragment fade-in">— Парсинг текста.</span><br>
+        <span class="fragment fade-in">— Обработка и анализ событий.</span><br>
+        <span class="fragment fade-in">— Сетевое программирование.</span><br>
+        <span class="fragment fade-in">— Асинхронное программирование.</span><br>
+        <span class="fragment fade-in">— Многопототочность, многопроцессорность.</span><br>
+        <span class="fragment fade-in">— Релиз-менеджмент.</span><br>
+        <span class="fragment fade-in">— Веб.</span><br>
+        <span class="fragment fade-in">— UI.</span><br>
+        <span class="fragment fade-in">— Реверс-инжиниринг.</span><br>
+        <span class="fragment fade-in">— Картография.</span><br>
+        <span class="fragment fade-in">— <i>GIS.</i></span><br>
+        <span class="fragment fade-in">— <i>Статистика.</i></span><br>
+        <span class="fragment fade-in">— <i>Распознавание образов.</i></span><br>
+        <span class="fragment fade-in">— <i>ИИ, машинное обучение.</i></span><br>
+        <span class="fragment fade-in">— <i>Экономика.</i></span><br>
+      </div>
+
+      <aside class="notes">
+        //
+      </aside>
+    </section>
+
+    <section>
+      <h3>Развитие сегодня</h3>
+      <p style="text-align: left;">
+        <span class="fragment fade-in">— Команда энтузиастов «Daidalos Team».</span><br>
+        <span class="fragment fade-in">— Новые патчи ~1 раз в год.</span><br>
+        <span class="fragment fade-in">— Локальная группа разработчиков и тестировщиков.</span><br>
+        <span class="fragment fade-in">— Сообщество.</span><br>
+        <span class="fragment fade-in">— Модификации.</span><br>
+        <span class="fragment fade-in">— Старые технологии, примитивный процесс.</span><br>
+        <span class="fragment fade-in">— Нашел проблему? Почини сам и докажи!</span><br>
+      </p>
+
+      <aside class="notes">
+        Сообщество и разработчкики — дяди взрослые. А процесс разработки, как у школьников (не в обиду).
+      </aside>
+    </section>
+
+    <section>
+      <h3>Территории в симуляторе</h3>
+      <p style="text-align: left;">
+        <span class="fragment fade-in">— 79 официальных локаций (вкл. вариации).</span><br>
+        <span class="fragment fade-in">— мин. 125 неофициальных локаций (вкл. вариации).</span><br>
+        <span class="fragment fade-in">— Средние площади: в пределах 100 тыс. км<sup>2</sup>.</span><br>
+        <span class="fragment fade-in">— Наибольшая площадь: 496 тыс. км<sup>2</sup> (станд.).</span><br>
+        <span class="fragment fade-in">— Наибольшая площадь: 708 тыс. км<sup>2</sup> (модиф.).</span><br>
+        <span class="fragment fade-in">— Теоретический максимум стороны: 3276.8 км (2<sup>15</sup>/10).</span><br>
+        <span class="fragment fade-in">— Теоретический максимум площади: 10737 тыс. км<sup>2</sup>.</span><br>
+      </p>
+
+      <aside class="notes">
+        //
+      </aside>
+    </section>
+
+    <section>
+      <h3>Площади локаций</h3>
+      <img data-src="img/areas.tiff"/>
+
+      <aside class="notes">
+        Площадь Укрианы: 603549 (де-юре)
+      </aside>
+    </section>
+
+    <section>
+      <section>
+        <h4>Европа и Африка</h4>
+        <img width="60%" data-src="img/europe.gif"/>
+
+        <aside class="notes">
+          Отсутствует Испания: нет самолетов того периода.
+        </aside>
+      </section>
+
+      <section>
+        <h4>Европа и Африка</h4>
+        <img width="100%" data-src="img/europe2.jpg"/>
+
+        <aside class="notes">
+          Карты "из коробки", небольшая неточность: Словакия и Балатон немного не на своих местах.
+        </aside>
+      </section>
+
+      <section>
+        <h4>Дальний Восток</h4>
+        <img width="40%" data-src="img/far-east.png"/>
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h4>Тихий океан</h4>
+        <img width="100%" data-src="img/oceania.jpg"/>
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h4>Территория Украины</h4>
+        <img width="60%" data-src="img/ukraine.jpeg"/>
+
+        <aside class="notes">
+          Так же есть Донбасс, Черкассы, Чёрное море.<br>
+          <br>
+          Насколько точно и детально?
+        </aside>
+      </section>
+
+      <section>
+        <h4>Киев в игре</h4>
+        <img width="100%" data-src="img/kyiv-game.jpg"/>
+
+        <aside class="notes">
+          Город ~10х10 км.<br>
+          <br>
+          Сама карта 200х300 км.<br>
+          <br>
+          Время 2-й МВ.
+        </aside>
+      </section>
+
+      <section>
+        <h4>Киев в реальности</h4>
+        <img width="100%" data-src="img/kyiv-real.png"/>
+
+        <aside class="notes">
+          Время нынешнее.<br>
+          <br>
+          Стадион на месте :)
+        </aside>
+      </section>
+    </section>
+
+    <section>
+      <h3>Разработка: необходимые данные</h3>
+      <p style="text-align: left;">
+        <span class="fragment fade-in">— Загрузчик локации.</span><br>
+        <span class="fragment fade-in">— Мировой океан и суша.</span><br>
+        <span class="fragment fade-in">— Рельеф.</span><br>
+        <span class="fragment fade-in">— Текстуры.</span><br>
+        <span class="fragment fade-in">— Статический LOD (для старых или слабых ПК).</span><br>
+        <span class="fragment fade-in">— Навигационная карта.</span><br>
+        <span class="fragment fade-in">— Статические объекты.</span><br>
+        <span class="fragment fade-in">— Названия и тексты.</span><br>
+      </p>
+
+      <aside class="notes">
+        LOD (Level Of Detail) — уровни детализации.
+      </aside>
+    </section>
+
+    <section>
+      <h3>Загрузчик локации</h3>
+      <p style="text-align: left;">
+        <span class="fragment fade-in">— Список навигационных карт.</span><br>
+        <span class="fragment fade-in">— Текстуры и материалы.</span><br>
+        <span class="fragment fade-in">— Тексты.</span><br>
+        <span class="fragment fade-in">— Статические объекты.</span><br>
+        <span class="fragment fade-in">— Камуфляж.</span><br>
+        <span class="fragment fade-in">— Месяц года.</span><br>
+        <span class="fragment fade-in">— Температура воздуха.</span><br>
+        <span class="fragment fade-in">— Атмосферное давление.</span><br>
+      </p>
+
+      <aside class="notes">
+        load.ini<br>
+        <br>
+        Загрузчиков может быть несколько: свой для каждого варианта локации.
+        <br>
+        Список навигационных карт — в разном приближении (обычно до 3-х).<br>
+        <br>
+      </aside>
+    </section>
+
+    <section>
+      <section>
+        <h3>Исходные данные</h3>
+        <p style="text-align: left;">
+          <span class="fragment fade-in">— <a href="http://www2.jpl.nasa.gov/srtm/">SRTM</a> 90m (Shuttle Radar Topography Mission) — осн. ист.</span><br>
+          <span class="fragment fade-in">— <a href="https://asterweb.jpl.nasa.gov/gdem.asp">ASTER GDEM</a> (Advanced Spaceborne Thermal Emission and Reflection Radiometer).</span><br>
+          <span class="fragment fade-in">— Местные топографические карты.</span><br>
+          <span class="fragment fade-in">— DCW (Digital Chart of the World).</span><br>
+          <span class="fragment fade-in">— GADM (Global Administrative Areas).</span><br>
+        </p>
+
+        <aside class="notes">
+          DCW — дороги, ж/д дороги, континентальные воды (реки, каналы, озера, водохранилища).
+        </aside>
+      </section>
+
+      <section>
+        <h3><a href="http://srtm.csi.cgiar.org/SELECTION/inputCoord.asp">STRM</a></h3>
+        <img width="100%" data-src="img/SRTM-Map.jpg">
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3><a href="http://www.viewfinderpanoramas.org/Coverage%20map%20viewfinderpanoramas_org3.htm">viewfinderpanoramas.org</a></h3>
+        <img width="100%" data-src="img/ferranti-map.jpg">
+
+        <aside class="notes">
+          аггрегатор DEM
+        </aside>
+      </section>
+
+      <section>
+        <h3><a href="http://www.diva-gis.org/gdata">DIVA-GIS free data</a></h3>
+        <img width="70%" data-src="img/diva-gis.png">
+
+        <aside class="notes">
+        </aside>
+      </section>
+    </section>
+
+    <section>
+      <h3>Пример: создание о-ва Манам</h3>
+      <img width="100%" data-src="img/example-1.jpg">
+
+      <aside class="notes">
+        Весь учебник — минимум 4 дня.
+        <br>
+        "Лекція популярна. Мета — зацікавити, а не задовбати."<br>
+        <br>
+        Обрисовать картину стратегически.
+        <br>
+        Манам — север Папуа-Новой Гвинеи.<br>
+      </aside>
+    </section>
+
+    <section>
+      <h3>Инструментарий</h3>
+      <p style="text-align: left;">
+        <span class="fragment fade-in">— Текстовый редактор.</span><br>
+        <span class="fragment fade-in">— Графический редактор (GIMP / Photoshop).</span><br>
+        <span class="fragment fade-in">— Microdem.</span><br>
+        <span class="fragment fade-in">— Взломанный «Ил-2 Штурмовик» с утилитами.</span><br>
+      </p>
+
+      <aside class="notes">
+      </aside>
+    </section>
+
+    <section>
+      <section>
+        <h3>Получение данных о рельефе</h3>
+        <img width="70%" data-src="img/example-2.png">
+
+        <aside class="notes">
+          Из этих данных получаются все последующие данные и карты.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Загрузка в Microdem</h3>
+        <img width="40%" data-src="img/example-3.png">
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3>Выбор участка</h3>
+        <img width="50%" data-src="img/example-4.png">
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3>Подготовка данных о ландшафте</h3>
+        <img width="50%" data-src="img/example-5.png">
+
+        <aside class="notes">
+          Таблица оттенков серого подогнана специально под игру.<br>
+          <br>
+          Синий — заполняет моря/океаны.
+        </aside>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h3>Определение береговой линии</h3>
+        <img class="fragment fade-in" width="40%" data-src="img/example-6-1.png">
+        <img class="fragment fade-in" width="40%" data-src="img/example-6-2.png">
+
+        <aside class="notes">
+          Берем участок, подогнанный под конечный размер локации.<br>
+          <br>
+          Приводим к единой цветовой палитре.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Определение береговой линии</h3>
+        <img class="fragment fade-in" width="40%" data-src="img/example-6-3.png">
+        <img class="fragment fade-in" width="40%" data-src="img/example-6-4.png">
+        <p class="fragment fade-in">Черный — море, белый — суша.</p>
+
+        <aside class="notes">
+          Сокращаем диапазон цветов до 2-х: черного и белого.<br>
+          <br>
+          Размываем границы, чтобы избавиться от ступенчатости.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Сжатие информации о береговой линии</h3>
+        <img class="fragment fade-in" width="100%" data-src="img/example-7.png">
+        <p class="fragment fade-in">Ширина фикфированная: 1024 точки.</p>
+        <p class="fragment fade-in">Блоки данных: 32х32 точки.</p>
+
+        <aside class="notes">
+          Карты большие, зветов всего 2, много пустого пространства.<br>
+          <br>
+          Команда разработчиков создала свой метод сжатия информации о береговой линии.
+        </aside>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h3>Создание карты рельефа</h3>
+        <img class="fragment fade-in" width="40%" data-src="img/example-8-1.png">
+        <img class="fragment fade-in" width="40%" data-src="img/example-8-2.png">
+        <p>
+          <span class="fragment fade-in">Макс. высота: 4032 м.</span><br>
+          <span class="fragment fade-in">256 оттенков серого</span><br>
+          <span class="fragment fade-in">1 точка — 200 метров</span><br>
+        </p>
+
+        <aside class="notes">
+          Опять берем участок, подогнанный под конечный размер локации.<br>
+          <br>
+          Опять приводим к единой цветовой палитре.
+          <br>
+          Соответствие высоты и оттенка серого нелинейное: равнины более гладкие, пики более остроконечные.<br>
+        </aside>
+      </section>
+
+      <section>
+        <h3>Корректировка береговой линии</h3>
+        <img class="fragment fade-in" width="40%" data-src="img/example-8-3.png">
+        <img class="fragment fade-in" width="40%" data-src="img/example-8-4.png">
+        <p class="fragment fade-in">
+          Эффективность 95%.<br>
+          Необходима "доработка напильником".
+        </p>
+
+        <aside class="notes">
+          С помощью спец. утилиты на основании карты рельефа и карты береговой
+          линии выполняется корректировка берегов.<br>
+          <br>
+          Это делается для того, чтобы "притоптать" поверхность в случае наложения суши и воды.<br>
+          <br>
+          После корректировки всё ещё необходима "доработка напильником".<br>
+          <br>
+        </aside>
+      </section>
+
+      <section>
+        <h3>Корректировка береговой линии</h3>
+        <img class="fragment fade-in" width="70%" data-src="img/example-8-5.png"><br>
+        <img class="fragment fade-in" width="70%" data-src="img/example-8-6.png">
+
+        <aside class="notes">
+          //
+        </aside>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h3>Карта текстур</h3>
+        <p style="text-align: left;">
+          <span class="fragment fade-in">— Индексирование через оттенки серого.</span><br>
+          <span class="fragment fade-in">— Включает в себя дороги (+ ж/д), реки, леса, города.</span><br>
+          <span class="fragment fade-in">— Всего 256 возможных текстур.</span><br>
+          <span class="fragment fade-in">— Использовать можно 29: остальное для рельс и дорог.</span><br>
+        </p>
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3>Пример карты текстур</h3>
+        <img class="fragment fade-in" width="40%" data-src="img/example-9.png">
+        <p class="fragment fade-in">0 — земля, 31 — морская вода.</p>
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3>Весь покрытый зеленью</h3>
+        <img width="100%" data-src="img/example-12.png">
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3>В действительности всё не так...</h3>
+        <img width="55%" data-src="img/example-13.png">
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3>Примеры текстур земли</h3>
+        <img width="50%" data-src="img/example-10.png">
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3>Примеры текстур воды</h3>
+        <img width="60%" data-src="img/example-11.png">
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3>После ручной корректировки</h3>
+        <img width="100%" data-src="img/example-14.png">
+
+        <aside class="notes">
+        </aside>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h3>Статический LOD (необязательно)</h3>
+        <img class="fragment fade-in" width="45%" data-src="img/example-15-1.png">
+        <img class="fragment fade-in" width="45%" data-src="img/example-15-2.png">
+
+        <aside class="notes">
+          LOD в Ил-2 — цветная версия карты текстур. Используется для прорисовки
+          дальних дистанций при настройках графики, отличных от максимальных.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Сингуляризация текстуры</h3>
+        <img class="fragment fade-in" width="33%" data-src="img/example-15-3.png">
+        <img class="fragment fade-in" width="45%" data-src="img/example-15-4.png">
+
+        <aside class="notes">
+          Берем текстуру, сжимаем её в 1 пиксел, получаем усредненное значение цвета.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Раскраска карты текстур</h3>
+        <img class="fragment fade-in" width="45%" data-src="img/example-15-5.png">
+        <img class="fragment fade-in" width="45%" data-src="img/example-15-6.png">
+
+        <aside class="notes">
+          Каждый индекс текстуры заменяем на её усредненный цвет для получения конечного результата.
+        </aside>
+      </section>
+    </section>
+
+    <section>
+      <section>
+        <h3>Создание аэродромов</h3>
+        <img class="fragment fade-in" width="75%" data-src="img/example-16-1.png"><br>
+        <img class="fragment fade-in" width="75%" data-src="img/example-16-2.png">
+
+        <aside class="notes">
+          Часто площадка, на которой необходимо разместить аэродром, оказывается неровной.<br>
+          <br>
+          Поэтому её необходимо идеально выровнять, чтобы разместить ВПП.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Выравнивание поверхности</h3>
+        <img class="fragment fade-in" width="45%" data-src="img/example-16-3.png">
+        <img class="fragment fade-in" width="45%" data-src="img/example-16-4.png">
+
+        <aside class="notes">
+          В игровом редакторе отмечаются точки начала и конца ВПП путем снижения их высоты
+          так, чтоб они выделялись на карте высот.<br>
+          <br>
+          Далее берется значение высоты посередине будущей ВПП и применяется ко всей
+          близлежащей территории.
+        </aside>
+      </section>
+    </section>
+
+    <section>
+      <h3>Добавление текстов</h3>
+      <img width="80%" data-src="img/example-17.png">
+
+      <aside class="notes">
+        Тексты могут быть разных размеров, цветов и относиться к разным уровням приближения.<br>
+        <br>
+        Тексты локализируются минимум в 2 языка: англ и рус. Ещё есть как минимум чешский.
+      </aside>
+    </section>
+
+    <section>
+      <h3>Добавление статических объектов</h3>
+      <img width="90%" data-src="img/example-18.jpg">
+
+      <aside class="notes">
+        Вышки на аэродромах, мосты, достопримечательности и узнаваемые объекты.<br>
+        <br>
+        На изображении Генуэзская крепость, Судак.
+      </aside>
+    </section>
+
+    <section>
+      <h3>Это ещё не конец</h3>
+      <p style="text-align: left;">
+        <span class="fragment fade-in">— Реки и сезонные ручьи, водохранилища и озера.</span><br>
+        <span class="fragment fade-in">— Дороги, шоссе, рельсы, их пересечения.</span><br>
+        <span class="fragment fade-in">— Мосты.</span><br>
+        <span class="fragment fade-in">— Населённые пункты.</span><br>
+        <span class="fragment fade-in">— Учёт карт, фотоснимков тех времён, архивы.</span><br>
+      </p>
+
+      <aside class="notes">
+      </aside>
+    </section>
+
+    <section>
+      <h3>Навигационная карта</h3>
+      <img class="fragment fade-in" width="32%" data-src="img/example-19-1.png">
+      <img class="fragment fade-in" width="32%" data-src="img/example-19-2.png">
+      <img class="fragment fade-in" width="32%" data-src="img/example-19-3.png">
+
+      <aside class="notes">
+        Вспомним слайд "Подготовка данных о ландшафте", где проводилась работа в Microdem.
+        <br>
+        Применяем таблицу цветов специально подогнанную под игру.<br>
+        <br>
+        Добавляем тени.<br>
+        <br>
+        Выбираем финальный участок, корректируем и подрисовываем.<br>
+        <br>
+        Необходимо нанести дороги, населенные пункты и проч.<br>
+        <br>
+        Также можно использовать реальные карты при наличии и совпадении.
+      </aside>
+    </section>
+
+    <section>
+      <section>
+        <h3>Пример реальной навигац. карты</h3>
+        <img width="100%" data-src="img/example-20-1.jpg">
+
+        <aside class="notes">
+          Крым, нет текстов, нет аэродромов, нет мостов, нет сетки.
+        </aside>
+      </section>
+
+      <section>
+        <h3>Пример реальной карты линий берегов</h3>
+        <img width="20%" data-src="img/example-20-2.jpg">
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3>Пример реальной карты высот</h3>
+        <img width="100%" data-src="img/example-20-3.jpg">
+
+        <aside class="notes">
+        </aside>
+      </section>
+
+      <section>
+        <h3>Пример реальной карты текстур</h3>
+        <img width="100%" data-src="img/example-20-4.jpg">
+
+        <aside class="notes">
+          Четко видны дороги и шоссе.
+        </aside>
+      </section>
+    </section>
+
+    <section>
+      <h3>Использование навигационных карт</h3>
+      // TODO:
+      <aside class="notes">
+      </aside>
+    </section>
+
+    <section>
+      <h3>Личный вклад</h3>
+      // TODO:
+      <aside class="notes">
+      </aside>
+    </section>
+
+    <section>
+      <h3>Ожидания и планы на будущее</h3>
+      // TODO:
+      <aside class="notes">
+      </aside>
+    </section>
+
+    <section>
+      <h1>Вопросы</h1>
     </section>
 
     <section>
